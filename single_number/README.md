@@ -6,12 +6,15 @@ Given a non-empty array of integers where every element appears twice except for
 ```
 Sample input: [2, 2, 1]
 Expected output: 1
+
 ```
 
 ```
 Sample iput: [4, 1, 2, 1, 2]
 Expected output: 4
 ```
+
+
 
 Can you implement a solution that finds the single number in _one_ pass through the input array with `O(1)` space complexity?
 
