@@ -14,7 +14,9 @@ def moving_zeroes(arr):
 
     for n in arr:
         if n != 0:
-            arr.insert(0, arr.remove(n))
+            temp = n
+            arr.remove(n)
+            arr.insert(0, temp)
 
     return arr
 

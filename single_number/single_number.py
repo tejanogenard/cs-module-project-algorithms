@@ -4,42 +4,46 @@ Returns: an integer
 '''
 
 
+
 def single_number(arr):
+    #O(n^2)
+    #is this the best we can do? 
+    # when looping through the elements, let's count how many tiems 
+    # they occur 
+    # we use list.count(number) and check if the count == 1 
+    
+#brute force solution: two nested loops 
+# loop through every element in the list 
+# loop through every element in the list 
+# do a comparison to see if the two elements ever match 
 
-#  if we add each number once and multiply the sum by 2, we will get twice the sum of each element of the array.
-#  Then we will subtract the sum of the whole array from the twice_sum and get the required number (which appears once in the array).
-
-# Array [] : [a, a, b, b, c, c, d]
-# Mathematical Equation = 2*(a+b+c+d) – (a + a + b + b + c + c + d)
-
-# In more simple words: 2*(sum_of_array_without_duplicates) – (sum_of_array)
- 
-        #Possible future solution
-    # we want to loop through the entire array and check for duplicates. 
-    # how can we check for duplicates ?  
-    # we check the first number index = 0 against every other number inside the array,
-    # if we find a duplicate then remove the duplicates from the array
-    # else, this means that our number is the single_number inside the array
-    # Note "you can call single_number again until you finally reach 1 single number inside the entire array, then return that number "
+    s = set() # 0(1)
+    for x in arr: 
+        if x in s:
+            s.remove(x)
+        else:
+            s.add(x)
+    
+    return list(s)[0]
 
 
-    # Your code here
 
-    # why is this to be considered to be inefficent ? 
 
-    return 2 * sum(set(arr)) - sum(arr) # O(n) runtime? 
 
-     
-     
+#Solution_one: 
+#     Since i ^ i = 0 for any integer i, and i ^ 0 = i, you have
+#     (3 ^ 3) ^ (4 ^ 4) ^ 5 = 0 ^ 0 ^ 5 = 5
+    # result = 0
+    # for i in arr:
+    #     result ^= i
+    #     print(result)
+    # return result
 
-  
-  
-
- 
 
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
     arr = [1, 1, 4, 4, 5, 5, 3, 3, 9, 0, 0]
+    arr2 = [1, 4, 1, 4, 3, 5, 5, 3, 0, 9, 0]
 
     print(f"The odd-number-out is {single_number(arr)}")
